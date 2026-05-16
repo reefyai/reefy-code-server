@@ -1,0 +1,34 @@
+{
+  "slug": "code-server",
+  "version": "v2026.05.16-01",
+  "name": "VS Code",
+  "icon": "/static/icons/code-server.png",
+  "description": "VS Code in the browser via code-server, with Claude Code + OpenAI Codex CLIs pre-installed. Set PASSWORD in the env field at install to lock down access.",
+  "image": "ghcr.io/reefyai/reefy-code-server:v2026.05.16-01",
+  "default_port": 8080,
+  "volumes": {
+    "workspace": {
+      "mount": "/home/coder/workspace",
+      "uid": 1000,
+      "backup": [
+        "borgbase"
+      ]
+    },
+    "ide": {
+      "mount": "/home/coder/.local/share/code-server",
+      "uid": 1000,
+      "backup": [
+        "borgbase"
+      ]
+    },
+    "config": {
+      "mount": "/home/coder/.config/code-server",
+      "uid": 1000,
+      "backup": []
+    }
+  },
+  "env": {},
+  "tags": [
+    "dev"
+  ]
+}
